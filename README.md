@@ -4,7 +4,7 @@ Install via `git clone...`
 
 Example: 
 
-```
+```python
 from oecd_wrapper import QueryBuilder
 
 
