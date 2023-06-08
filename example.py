@@ -10,7 +10,7 @@ subject=["CPALTT01","CP030000"] # CPALTT01 es All Items, CP030000 es Clothing an
 measure=["IXNB"] # IXNB es National Index
 frequency="M" # Mensual
 agency_name="all" # No tengo idea
-startTime="2014" # El año desde donde comienza
+startTime="2000" # El año desde donde comienza
 endTime= "2023" # El año donde termina
 layout = "ts" # para que me lo traiga como serie de tiempo. 
 
@@ -27,3 +27,5 @@ builder = QueryBuilder(dataset_identifier=dataset_id,
 df = builder.get_dataframe()
 
 print(df)
+
+
