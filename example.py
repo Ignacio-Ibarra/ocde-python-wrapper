@@ -26,7 +26,7 @@ import json
 #                        layout=layout)
 
 
-url = "https://stats.oecd.org/SDMX-JSON/data/PRICES_CPI/AUS+USA.CPALTT01.IXOB.M/all?startTime=1914-01&endTime=2023-05"
+url = "https://stats.oecd.org/SDMX-JSON/data/PRICES_CPI/ARG+USA+CHL.CPALTT01.IXOB.M/all?startTime=1914-01&endTime=2023-05"
 
 builder = QueryBuilder(url)
 
