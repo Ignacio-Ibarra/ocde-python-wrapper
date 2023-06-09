@@ -1,6 +1,7 @@
 import _session
 import _parser
 import numpy as np
+import re
 
 
 
@@ -43,8 +44,10 @@ class QueryBuilder():
         if kwargs:
             if set(kwargs.keys()) == set(self.keywords):   
                 self.dataset_identifier = kwargs['dataset_identifier']
-                pre_query = f"{'+'.join(kwargs['location'])}.{'+'.join(kwargs['subject'])}.{'+'.join(kwargs['measure'])}.{kwargs['frequency']}"
-                self.filter_expresion = pre_query if pre_query!="..." else "all"
+                self.locations = kwargs['location']
+                self.subjects = kwargs['subject']
+                self.measures = kwargs['measure']
+                self.frequency = kwargs['frequency']
                 self.agency_name = kwargs['agency_name']
                 self.startTime = kwargs['startTime']
                 self.endTime = kwargs['endTime']
@@ -55,8 +58,6 @@ class QueryBuilder():
                     self.layout = "&dimensionAtObservation=allDimensions"
                 else:
                     raise ValueError("Wrong value to layout parameter: 'ts' to get a time series layout or 'flat' to get all dimensions") 
-                self.query = f"http://stats.oecd.org/SDMX-JSON/data/{self.dataset_identifier}/{self.filter_expresion}/{self.agency_name}?startTime={self.startTime}&endTime={self.endTime}{self.layout}"
-            
             else:
                 raise ValueError(f"Invalid set of parameters was passed. Available params are: {', '.join(self.keywords)}")
                       
