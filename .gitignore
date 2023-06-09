@@ -7,3 +7,5 @@ creds/
 tmp/
 .venv/
 .env
+*.xlsx
+*.csv
